@@ -13,32 +13,41 @@
       <h1>Crystals Collector!</h1>
     </header>
     <div class="directions">
-      <p>You will be given a random number at the start of the game</p>
+      <p>You will be given a random number at the start of the game.</p>
+      <br />
       <p>
         There are four crystals below. By clicking on a crystal you will add a
         specific amount of points to your total score.
       </p>
+      <br />
       <p>
         You win the game by matching your total score to random number, you lose
         the game if your total score goes above the random number.
       </p>
+      <br />
       <p>The value of each crystal is hidden from you until you click on it.</p>
+      <br />
       <p>
         Each time when the game starts, the game will change the values of each
-        crystal
+        crystal.
       </p>
     </div>
-    <div id="randomNumber"></div>
-    <div id="winsAndLosses"></div>
+    <div class="randomNumber">
+      <p id="random-num-text">0</p>
+    </div>
+    <div class="winsAndLosses">
+      <p id="wins-p">Wins:</p>
+      <p id="losses-p">Losses:</p>
+    </div>
     <div class="crystals">
-      <img />
-      <img />
-      <img />
-      <img />
+      <img src="assets/images/blue_crystal.jpg" alt="blue crystal" />
+      <img src="assets/images/pink_crystal.jpg" alt="pink crystal" />
+      <img src="assets/images/purple_crystal.jpg" alt="purple_crystal" />
+      <img src="assets/images/red_crystal.jpg" alt="red crystal" />
     </div>
     <div class="score">
-      <div id="score-header"></div>
-      <div id="score-box"></div>
+      <div id="score-header">Your Total Score is:</div>
+      <div id="score-box">0</div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
