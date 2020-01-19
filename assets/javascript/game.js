@@ -44,6 +44,7 @@ gameStart();
 //MAIN PROCESS
 //=======================================================================
 // //when each crystal is clicked, add its value to the total score
+
 $("#blue").on("click", function() {
   scoreBox = scoreBox + crystalBlue;
   //show in counter area
@@ -64,13 +65,18 @@ $("#red").on("click", function() {
   //show in counter area
   $("#score-box").html(scoreBox);
 });
+
+//why isn't the below working?
+
 //if user's score equals the random number, user wins, yay
 if (randomNum === scoreBox) {
   wins++;
-  $("#wins-p").html(wins);
-} else if (randomNum < scoreBox) {
+  $("#wins-p").html("Wins:" + wins);
+  console.log("wins incrementer working");
+
+  //if user's score goes above the random number, user loses
+} else if (scoreBox > randomNum) {
   losses++;
-  $("losses-p").html(losses);
-} else {
+  $("losses-p").html("Losses:" + losses);
+  console.log("losses inc working");
 }
-//if user's score goes above the random number, user loses
