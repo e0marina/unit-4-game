@@ -1,7 +1,6 @@
 // GLOBAL VARIABLES (variables we want to be avails to whole game)
 //=======================================================================
-var wins = 0;
-var losses = 0;
+
 var scoreBox = 0;
 //The below seems redundant...no?
 var crystalBlue = Math.floor(Math.random() * (12 - 1)) + 1;
@@ -67,7 +66,8 @@ $("#red").on("click", function() {
 });
 
 //why isn't the below working?
-
+var wins = 0;
+var losses = 0;
 //if user's score equals the random number, user wins, yay
 if (randomNum === scoreBox) {
   wins++;
