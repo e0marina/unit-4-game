@@ -7,15 +7,20 @@ var crystalBlue = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalPink = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalPurple = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalRed = Math.floor(Math.random() * (12 - 1)) + 1;
+
 //randomNum
-function randomNum(min, max) {
-  return Math.floor(Math.random() * (120 - 19)) + 19;
+
+var randomNum = 0;
+function randoGen() {
+  randomNum = Math.floor(Math.random() * (120 - 19)) + 19;
 }
+
 //FUNCTIONS
 //=======================================================================
 //at game start/reset - generate a random number (that user will try to match)
 //and display it on the screen
 function gameStart() {
+  randoGen();
   $("#random-num-text").html(randomNum);
   //define function to generate random nums to crystals
 
@@ -34,8 +39,8 @@ function gameStart() {
   console.log("rednum");
 
   //at game start/reset - total score set to 0
-
-  $("#score-box").html("0");
+  scoreBox = 0;
+  $("#score-box").html(scoreBox);
   console.log("score box working");
 }
 gameStart();
@@ -48,35 +53,44 @@ $("#blue").on("click", function() {
   scoreBox = scoreBox + crystalBlue;
   //show in counter area
   $("#score-box").html(scoreBox);
+  scoreUpdate();
 });
 $("#pink").on("click", function() {
   scoreBox = scoreBox + crystalPink;
   //show in counter area
   $("#score-box").html(scoreBox);
+  scoreUpdate();
 });
 $("#purple").on("click", function() {
   scoreBox = scoreBox + crystalPurple;
   //show in counter area
   $("#score-box").html(scoreBox);
+  scoreUpdate();
 });
 $("#red").on("click", function() {
   scoreBox = scoreBox + crystalRed;
   //show in counter area
   $("#score-box").html(scoreBox);
+  scoreUpdate();
 });
 
 //why isn't the below working?
 var wins = 0;
 var losses = 0;
 //if user's score equals the random number, user wins, yay
-if (randomNum === scoreBox) {
-  wins++;
-  $("#wins-p").html("Wins:" + wins);
-  console.log("wins incrementer working");
 
-  //if user's score goes above the random number, user loses
-} else if (scoreBox > randomNum) {
-  losses++;
-  $("losses-p").html("Losses:" + losses);
-  console.log("losses inc working");
+function scoreUpdate() {
+  if (randomNum === scoreBox) {
+    wins++;
+    $("#wins-p").html("Wins:" + wins);
+    gameStart();
+    console.log("wins incrementer working");
+
+    //if user's score goes above the random number, user loses
+  } else if (scoreBox > randomNum) {
+    losses++;
+    $("#losses-p").html("Losses:" + losses);
+    gameStart();
+    console.log("losses inc working");
+  }
 }
