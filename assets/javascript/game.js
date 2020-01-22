@@ -2,14 +2,13 @@
 //=======================================================================
 
 var scoreBox = 0;
-//The below seems redundant...no?
+//crystals gen random numbers
 var crystalBlue = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalPink = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalPurple = Math.floor(Math.random() * (12 - 1)) + 1;
 var crystalRed = Math.floor(Math.random() * (12 - 1)) + 1;
 
-//randomNum
-
+//Random number that player needs to match
 var randomNum = 0;
 function randoGen() {
   randomNum = Math.floor(Math.random() * (120 - 19)) + 19;
@@ -22,7 +21,6 @@ function randoGen() {
 function gameStart() {
   randoGen();
   $("#random-num-text").html(randomNum);
-  //define function to generate random nums to crystals
 
   //at game start/reset - diff random numbers assigned to crystals
 
@@ -74,7 +72,6 @@ $("#red").on("click", function() {
   scoreUpdate();
 });
 
-//why isn't the below working?
 var wins = 0;
 var losses = 0;
 //if user's score equals the random number, user wins, yay
